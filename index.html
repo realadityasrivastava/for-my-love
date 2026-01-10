@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You</title>
+    
+    <!-- Fonts: Playfair Display (Serif) & Inter (Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Icons: Phosphor Icons (Light, refined lines) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background Canvas for Floating Petals -->
+    <canvas id="petalCanvas"></canvas>
+
+    <!-- Audio Toggle (Optional) -->
+    <div class="audio-control">
+        <i class="ph-light ph-music-note" id="audioIcon"></i>
+    </div>
+
+    <!-- Main Content Wrapper -->
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+
+            <!-- 1. Hero Section -->
+            <header class="hero">
+                <div class="hero-content">
+                    <span class="eyebrow">A quiet space</span>
+                    <h1 class="hero-title">Made Just<br>For You</h1>
+                    <div class="hero-line"></div>
+                </div>
+                <div class="scroll-indicator">
+                    <span>Begin</span>
+                    <div class="line"></div>
+                </div>
+            </header>
+
+            <!-- 2. Signature Section -->
+            <section class="signature">
+                <div class="container">
+                    <p class="signature-text">
+                        "You are the poem I never knew how to write,<br>
+                        and the peace I always<br>
+                        <span class="highlight">longed to find.</span>"
+                    </p>
+                </div>
+            </section>
+
+            <!-- 3. Essence Cards -->
+            <section class="essence">
+                <div class="container">
+                    <div class="card-grid">
+                        <!-- Card 1 -->
+                        <div class="glass-card">
+                            <i class="ph-light ph-sparkle icon"></i>
+                            <h3>Your Radiance</h3>
+                            <p>Like the first light of morning, your smile brightens my entire world.</p>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="glass-card">
+                            <i class="ph-light ph-feather icon"></i>
+                            <h3>Your Grace</h3>
+                            <p>You move through life with a kindness that heals everyone around you.</p>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="glass-card">
+                            <i class="ph-light ph-heart icon"></i>
+                            <h3>My Everything</h3>
+                            <p>Loving you is the easiest and most beautiful thing I have ever done.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3.5 Promise Section -->
+            <section class="promise">
+                <div class="container">
+                    <p>
+                        "To cherish you in the quiet moments,<br>
+                        to celebrate you in the loud ones,<br>
+                        and to love you, endlessly."
+                    </p>
+                </div>
+            </section>
+
+            <!-- 4. Visual Poetry (Parallax) -->
+            <section class="visual-poetry">
+                <div class="parallax-bg"></div>
+                <div class="poetry-content">
+                    <h2>I Love You</h2>
+                    <div class="big-heart">❤</div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Lenis for Smooth Scrolling -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
