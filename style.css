@@ -1,0 +1,313 @@
+:root {
+    /* Palette: Soft Ivory, Blush, Champagne, Deep Charcoal */
+    --bg-color: #F9F7F5;
+    --text-main: #3E3430;
+    --text-muted: #756A63;
+    --accent-gold: #C0B2A8;
+    --accent-blush: #EBE0DC;
+    --glass-bg: rgba(255, 255, 255, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    
+    /* Typography */
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(-45deg, #F9F7F5, #F0EBE6, #EBE0DC, #F9F7F5);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Canvas Background */
+#petalCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.9; /* Increased visibility */
+}
+
+/* Typography Utilities */
+h1, h2, h3 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+}
+
+.container {
+    width: 88%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Audio Toggle */
+.audio-control {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 100;
+    cursor: pointer;
+    background: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: opacity 0.3s ease;
+}
+.audio-control:hover { transform: scale(1.1); }
+.audio-control i { font-size: 1.5rem; color: #D45D79; }
+
+/* 1. Hero Section */
+.hero {
+    height: 100svh; /* Mobile friendly viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.eyebrow {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    display: block;
+    opacity: 0; /* Animated in JS */
+}
+
+.hero-title {
+    font-size: clamp(3rem, 10vw, 6rem);
+    line-height: 1.1;
+    color: var(--text-main);
+    margin-bottom: 2rem;
+    opacity: 0; /* Animated in JS */
+}
+
+.hero-line {
+    width: 1px;
+    height: 0px; /* Animated in JS */
+    background: var(--accent-gold);
+    margin: 0 auto;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    opacity: 0;
+}
+
+.scroll-indicator .line {
+    width: 1px;
+    height: 40px;
+    background: var(--text-muted);
+}
+
+/* 2. Signature Section */
+.signature {
+    padding: 8rem 0;
+    text-align: center;
+}
+
+.signature-text {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    line-height: 1.6;
+    font-style: italic;
+    color: var(--text-main);
+}
+
+.highlight {
+    color: var(--text-muted);
+    display: block;
+    margin-top: 0.5rem;
+}
+
+/* 3. Essence Cards */
+.essence {
+    padding: 4rem 0;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    padding: 3rem 2rem;
+    text-align: center;
+    border-radius: 2px; /* Minimal radius */
+    transition: box-shadow 0.5s ease;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.glass-card:hover {
+    box-shadow: 0 20px 40px rgba(212, 197, 176, 0.3);
+}
+
+.glass-card .icon {
+    font-size: 2rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    animation: float-icon 3s ease-in-out infinite;
+}
+
+.glass-card:nth-child(2) .icon { animation-delay: 1s; }
+.glass-card:nth-child(3) .icon { animation-delay: 2s; }
+
+.glass-card:hover .icon {
+    animation: heartbeat 1.5s infinite ease-in-out;
+    color: #D45D79;
+}
+
+.glass-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+}
+
+.glass-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+/* New Section: Promise */
+.promise {
+    padding: 6rem 0;
+    text-align: center;
+}
+
+.promise p {
+    font-family: var(--font-serif);
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    line-height: 1.8;
+    color: var(--text-main);
+}
+
+/* 4. Visual Poetry */
+.visual-poetry {
+    position: relative;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: 6rem 0;
+}
+
+.parallax-bg {
+    position: absolute;
+    top: -20%;
+    left: 0;
+    width: 100%;
+    height: 140%;
+    /* Placeholder for a soft abstract floral image */
+    background-image: url('https://images.unsplash.com/photo-1490750967868-58cb75063ed4?q=80&w=2500&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    filter: blur(4px) brightness(1.1);
+    opacity: 0.7;
+    z-index: -1;
+}
+
+.poetry-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.poetry-content h2 {
+    font-size: clamp(3rem, 8vw, 5rem);
+    color: #000000;
+    text-shadow: 0 0 30px rgba(242, 212, 215, 0.4);
+    letter-spacing: 0.1em;
+}
+
+.big-heart {
+    font-size: clamp(5rem, 15vw, 10rem);
+    color: #D45D79;
+    margin-top: 1rem;
+    animation: heartbeat 1.5s infinite ease-in-out;
+    filter: drop-shadow(0 0 15px rgba(212, 93, 121, 0.6));
+    line-height: 1;
+}
+
+/* 5. Final Statement */
+.final-statement {
+    padding: 6rem 0 10rem 0;
+    text-align: center;
+}
+
+.closing-line {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+}
+
+.final-decoration {
+    width: 6px;
+    height: 6px;
+    background-color: #D45D79;
+    border-radius: 50%;
+    margin: 2rem auto 0;
+    animation: heartbeat 2s infinite ease-in-out;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    15% { transform: scale(1.3); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.15); }
+    60% { transform: scale(1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes float-icon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}

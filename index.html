@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm So Sorry</title>
+    
+    <!-- Fonts: Playfair Display (Serif) & Inter (Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Icons: Phosphor Icons (Light, refined lines) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background Canvas for Floating Petals -->
+    <canvas id="petalCanvas"></canvas>
+
+    <!-- Audio Toggle -->
+    <div class="audio-control">
+        <i class="ph-fill ph-play" id="audioIcon"></i>
+    </div>
+    <audio id="bgMusic" loop>
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Main Content Wrapper -->
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+
+            <!-- 1. Hero Section -->
+            <header class="hero">
+                <div class="hero-content">
+                    <span class="eyebrow">Please Forgive Me</span>
+                    <h1 class="hero-title">I Am So<br>Sorry</h1>
+                    <div class="hero-line"></div>
+                </div>
+                <div class="scroll-indicator">
+                    <span>Begin</span>
+                    <div class="line"></div>
+                </div>
+            </header>
+
+            <!-- 2. Signature Section -->
+            <section class="signature">
+                <div class="container">
+                    <p class="signature-text" style="font-size: clamp(1.2rem, 3vw, 2rem);">
+                        "I never meant to hurt you.<br>
+                        My heart aches knowing I caused you pain,<br>
+                        <span class="highlight">and I miss your smile more than anything.</span>"
+                    </p>
+                </div>
+            </section>
+
+            <!-- 3. Essence Cards -->
+            <section class="essence">
+                <div class="container">
+                    <div class="card-grid">
+                        <!-- Card 1 -->
+                        <div class="glass-card">
+                            <i class="ph-light ph-ear icon"></i>
+                            <h3>I'm Listening</h3>
+                            <p>I understand where I went wrong, and I am ready to listen and learn.</p>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="glass-card">
+                            <i class="ph-light ph-arrows-clockwise icon"></i>
+                            <h3>I'm Changing</h3>
+                            <p>I promise to be better, to grow, and to never make the same mistake twice.</p>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="glass-card">
+                            <i class="ph-light ph-heart icon"></i>
+                            <h3>I Love You</h3>
+                            <p>No matter what happens, you are my everything, and I will fight for us.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3.5 Promise Section -->
+            <section class="promise">
+                <div class="container">
+                    <p>
+                        "To cherish you more deeply,<br>
+                        to understand you more fully,<br>
+                        and to love you, endlessly."
+                    </p>
+                </div>
+            </section>
+
+            <!-- 4. Visual Poetry (Parallax) -->
+            <section class="visual-poetry">
+                <div class="parallax-bg"></div>
+                <div class="poetry-content">
+                    <h2>Forgive Me?</h2>
+                    <div class="big-heart">❤</div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Lenis for Smooth Scrolling -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
